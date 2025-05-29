@@ -1,0 +1,16 @@
+{
+    "name": "imnotjavad/hack-gamebot",
+    "description": "A tool to interact with tbot.xyz game APIs.",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^12.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "GameService\\": "src/" 
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

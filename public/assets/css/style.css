@@ -1,0 +1,239 @@
+        :root {
+            --primary-color: #82caff; /* Sky Blue */
+            --secondary-color: #FFD700; /* Yellow */
+            --background-start: #2c3e50; /* Dark Slate Blue */
+            --background-end: #34495e;   /* Wet Asphalt */
+            --container-bg: rgba(35, 45, 65, 0.7); /* Darker, more translucent */
+            --container-border: rgba(255, 255, 255, 0.12);
+            --text-color: #ecf0f1;
+            --label-color: #bdc3c7;
+            --input-bg: rgba(0, 0, 0, 0.3);
+            --input-border: rgba(255, 255, 255, 0.2);
+            --input-focus-border: var(--primary-color);
+            --input-text-color: #f0f0f0;
+            --placeholder-color: #95a5a6;
+            --button-text-color: #3A2E00;
+            --button-secondary-bg: #6c757d;
+            --button-secondary-hover-bg: #5a6268;
+            --button-secondary-text-color: #ffffff;
+            --error-bg: rgba(231, 76, 60, 0.25);
+            --error-border: #e74c3c;
+            --error-text: #f5b7b1;
+            --success-bg: rgba(46, 204, 113, 0.2);
+            --success-border: #2ecc71;
+            --success-text: #a9dfbf;
+            --info-bg: rgba(52, 152, 219, 0.2);
+            --info-border: #3498db;
+            --info-text: #aed6f1;
+        }
+        body {
+            background: linear-gradient(135deg, var(--background-start), var(--background-end));
+            margin: 0;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        .mouse-trail canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 520px;
+            margin: 20px auto;
+            padding: 30px 40px;
+            background: var(--container-bg);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid var(--container-border);
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1.6em;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.8em;
+            text-shadow: 0 0 18px rgba(130, 202, 255, 0.5);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-weight: 400;
+            color: var(--label-color);
+            font-size: 0.95em;
+        }
+        input[type="url"],
+        input[type="number"] {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--input-border);
+            border-radius: 10px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            color: var(--input-text-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        input[type="url"]::placeholder,
+        input[type="number"]::placeholder {
+            color: var(--placeholder-color);
+            font-weight: 300;
+        }
+        input[type="url"]:focus,
+        input[type="number"]:focus {
+            border-color: var(--input-focus-border);
+            box-shadow: 0 0 12px rgba(130, 202, 255, 0.35);
+            outline: none;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        .form-group-checkbox {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .form-group-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+            accent-color: var(--primary-color);
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+        .form-group-checkbox label {
+            font-weight: 300;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-bottom: 0; /* Align with checkbox */
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .form-buttons .button {
+            flex-grow: 1;
+            margin-top: 0;
+        }
+        .button {
+            background: linear-gradient(145deg, #ffdd57, var(--secondary-color));
+            color: var(--button-text-color);
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.05em;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 12px rgba(255, 215, 0, 0.2);
+            text-transform: uppercase;
+        }
+        .button:hover {
+            background: linear-gradient(145deg, #ffe377, #ffc933);
+            box-shadow: 0 7px 18px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        .button:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 3px 8px rgba(255, 215, 0, 0.25);
+        }
+        .button-secondary {
+            background: linear-gradient(145deg, #868e96, #5a6268);
+            color: var(--button-secondary-text-color);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+        .button-secondary:hover {
+            background: linear-gradient(145deg, #9098a0, #62686e);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+        }
+        .button-secondary:active {
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Alert Styles */
+        .alert {
+            padding: 16px 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+            border-left-width: 5px;
+            border-left-style: solid;
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: var(--text-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .alert p { margin: 0; }
+        .alert p:not(:last-child) { margin-bottom: 8px; }
+
+        .alert-error { background-color: var(--error-bg); border-left-color: var(--error-border); color: var(--error-text); }
+        .alert-error strong { color: #f7a399; }
+
+        .alert-success { background-color: var(--success-bg); border-left-color: var(--success-border); color: var(--success-text); }
+        .alert-success strong { color: #91eeb3; }
+        
+        .alert-info { background-color: var(--info-bg); border-left-color: var(--info-border); color: var(--info-text); }
+        .alert-info strong { color: #90cfff; }
+
+        .response-data {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .response-data strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--label-color); 
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        .response-data pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            padding: 12px 15px;
+            background-color: rgba(0, 0, 0, 0.3); 
+            border-radius: 8px;
+            color: #c0d0e0; 
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.85em;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 25px 20px;
+            }
+            h1 { font-size: 1.6em; }
+            input[type="url"], input[type="number"], .button {
+                padding: 12px 15px;
+                font-size: 0.98em;
+            }
+            .alert { padding: 14px; font-size: 0.9em; }
+            .form-buttons { flex-direction: column; gap: 10px; }
+        }
