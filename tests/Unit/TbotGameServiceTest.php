@@ -1,7 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-// Assuming TbotGameService is autoloaded or required
-// require_once __DIR__ . '/../../src/Service/TbotGameService.php';
+use GameService\Service\TbotGameService;
 
 class TbotGameServiceTest extends TestCase
 {

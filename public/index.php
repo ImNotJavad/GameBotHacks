@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-// Autoloading (if using Composer) or direct require
-require_once __DIR__ . '/../src/Service/TbotGameService.php';
-// Potentially: require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php'; 
+use GameService\Service\TbotGameService;
 
 // Initialize variables
 $alertType = '';

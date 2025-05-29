@@ -1,5 +1,7 @@
 <?php
 
+namespace GameService\Service; 
+
 declare(strict_types=1); // Enforce strict type checking for better code quality
 
 /**
